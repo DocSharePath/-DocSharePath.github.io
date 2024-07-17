@@ -57,7 +57,7 @@
 </head>
 <body>
     <div class="inter" id="head">
-        <span>SharePath 2</span>
+        <span>SharePath</span>
     </div>
     <!--<div>
         <span>Driver's license not received</span>
@@ -80,9 +80,8 @@
         let tg = window.Telegram.WebApp;
         tg.expand();
         tg.MainButton.text = "Complete authentication";
-        tg.MainButton.show();
-
-        tg.MainButton.addEventListener('click', function(){
+        tg.MainButton.show();    
+        tg.MainButton.onClick(function () {
             tg.MainButton.hide()
         });
     </script>
