@@ -57,7 +57,7 @@
 </head>
 <body>
     <div class="inter" id="head">
-        <span>SharePath 1</span>
+        <span>SharePath 2</span>
     </div>
     <!--<div>
         <span>Driver's license not received</span>
@@ -82,11 +82,9 @@
         tg.MainButton.text = "Complete authentication";
         tg.MainButton.show();
 
-        if (tg.MainButton.isVisible){
+        tg.MainButton.addEventListener('click', function(){
             tg.MainButton.hide()
-        } else {
-            tg.MainButton.show()
-        }
+        });
     </script>
 </body>
 </html>
