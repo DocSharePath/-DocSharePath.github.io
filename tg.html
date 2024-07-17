@@ -9,14 +9,24 @@
     <style>
         .inter {
             font-family: "Inter", sans-serif;
+            font-size: 60px;
             background: linear-gradient(45deg, #2D83EC, #1AC9FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             color: #0B2349;
             position: relative;
             top: 210px;
-            font-size: 100px;
             font-weight: 800;
+        }
+        .inter2 {
+            font-family: "Inter", sans-serif;
+            font-size: 100px;
+            background: linear-gradient(45deg, #2D83EC, #1AC9FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0B2349;
+            text-align: center;
+            font-weight: 700;
         }
         body {
             background: #F7F9FB;
@@ -30,8 +40,20 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        const tg = window.Telegram.WebApp;
-        tg.ScanQrPopupParams();
+        
+        Telegram.WebApp.ready();
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        });
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Оплатить!',
+            "color": "linear-gradient(45deg, #2D83EC, #1AC9FF)",
+            "textColor": "white"
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.MainButton.hide();
+        });
+        Telegram.WebApp.MainButton.show();
     </script>
 </body>
 </html>
