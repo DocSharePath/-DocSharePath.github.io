@@ -21,13 +21,15 @@
         }
         .inter2 {
             font-family: "Inter", sans-serif;
-            font-size: 100px;
+            font-size: 1rem;
             background: linear-gradient(45deg, #2D83EC, #1AC9FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             color: #0B2349;
             text-align: center;
             font-weight: 700;
+            position: relative;
+            top: 20rem;
         }
         body {
             background: #F7F9FB;
@@ -39,12 +41,14 @@
     <div class="inter" id="head">
         <span>SharePath</span>
     </div>
+    <div class="inter2" id="full">
+        <p>Check Driver License</p>
+        <p>Check Passsport</p>
+        <p>Check Selfie</p>
+    </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         window.Telegram.WebApp.expand();
-        window.Telegram.WebApp.MainButton.text = "Changed Text";
-        window.Telegram.WebApp.MainButton.textColor = "white";
-        window.Telegram.WebApp.MainButton.color = "linear-gradient(45deg, #2D83EC, #1AC9FF)";
         window.Telegram.WebApp.MainButton.show();
     </script>
 </body>
