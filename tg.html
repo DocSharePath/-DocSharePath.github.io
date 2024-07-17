@@ -28,10 +28,27 @@
             text-align: center;
             font-weight: 700;
         }
+        body {
+            background: #F7F9FB;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <span class="inter">SharePath 4</span>
+    <div class="inter" id="head">
+        <span>SharePath 2</span>
+    </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+
+        tg.expand();
+
+        tg.MainButton.text = "Changed Text";
+        tg.MainButton.setText("Changed Text1");
+        tg.MainButton.textColor = "white";
+        tg.MainButton.color = "linear-gradient(45deg, #2D83EC, #1AC9FF)";
+        tg.MainButton.show();
+    </script>
 </body>
 </html>
