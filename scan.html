@@ -53,6 +53,10 @@
         tg.expand();
         tg.MainButton.text = "Scan";
         tg.MainButton.show();
+        tg.MainButton.onClick(function () {
+            tg.sendData("car" + document.getElementById('input1').value + document.getElementById('input2').value + document.getElementById('input3').value + document.getElementById('input4').value + document.getElementById('input5').value + document.getElementById('input6').value + document.getElementById('input7').value);
+            tg.close()
+        });
         tg.onEvent("qrTextReceived", (e) => {
             document.getElementById('input1').value = e.data[0]
             document.getElementById('input2').value = e.data[1]
