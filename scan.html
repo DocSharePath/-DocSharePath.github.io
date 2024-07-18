@@ -61,7 +61,6 @@
                 tg.showScanQrPopup({
                     text: "Scan the QR code on the car.",
                 })
-                tg.MainButton.hide();
             }
         });
         tg.onEvent("qrTextReceived", (e) => {
@@ -74,7 +73,6 @@
             document.getElementById('input7').value = e.data[6]
             window.Telegram.WebApp.closeScanQrPopup();
             tg.MainButton.text = "View the car";
-            tg.MainButton.show();
 
         })
     </script>
