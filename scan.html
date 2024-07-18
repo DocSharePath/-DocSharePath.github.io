@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QR Code Scanner</title>
+    <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .continue {
@@ -51,8 +51,17 @@
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
-        tg.MainButton.text = "Scan the Qr Code";
+        tg.MainButton.text = "Scan";
         tg.MainButton.show();
+        tg.onEvent("qrTextReceived", (e) => {
+            document.getElementById('input1').value = e.data[0]
+            document.getElementById('input2').value = e.data[1]
+            document.getElementById('input3').value = e.data[2]
+            document.getElementById('input4').value = e.data[3]
+            document.getElementById('input5').value = e.data[4]
+            document.getElementById('input6').value = e.data[5]
+            document.getElementById('input7').value = e.data[6]
+        })
     </script>
     <script>
         function checkInput(currentInput) {
@@ -67,6 +76,8 @@
         function checkInputFull(currentInput) {
             if (currentInput.value.length === 1) {
                 tg.MainButton.text = "View the car";
+            } else {
+                tg.MainButton.text = "Scan";
             }
         }
 
