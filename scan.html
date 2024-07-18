@@ -20,7 +20,7 @@
             background: #F7F9FB;
             text-align: center;
         }
-        input {
+        input { 
             font-family: "Inter", sans-serif;
             width: 30px; height: 30px;
             font-size: 20px;
@@ -68,17 +68,19 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        Telegram.WebApp.ready();
-        Telegram.WebApp.onEvent('themeChanged', function() {
-            document.documentElement.className = Telegram.WebApp.colorScheme;
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        tg.MainButton.text = "Complete authentication";
+        tg.MainButton.show();
+        tg.MainButton.onClick(function () {
+            tg.MainButton.hide();
+            tg.showScanQrPopup({
+                text: "Scan the QR code on the car. It's usually on the windshield or the back fender.",
+            })
         });
-        Telegram.WebApp.expand();
-        Telegram.WebApp.onEvent("qrTextReceived", (e) => {
-            window.Telegram.WebApp.sendData(e.data);
-            window.Telegram.WebApp.close()
-        })
-        window.Telegram.WebApp.showScanQrPopup({
-          text: "Scan the QR code on the car. It's usually on the windshield or the back fender.",
+        tg.onEvent("qrTextReceived", (e) => {
+            tg.sendData("car" + e.data);
+            tg.close()
         })
     </script>
 </body>
