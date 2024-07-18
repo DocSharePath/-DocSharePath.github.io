@@ -72,6 +72,8 @@
             document.getElementById('input5').value = e.data[4]
             document.getElementById('input6').value = e.data[5]
             document.getElementById('input7').value = e.data[6]
+            window.Telegram.WebApp.closeScanQrPopup();
+            tg.MainButton.text = "View the car";
         })
     </script>
     <script>
