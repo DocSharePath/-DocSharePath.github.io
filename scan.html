@@ -39,13 +39,13 @@
 <body>
     <span class="continue">Scan the QR code on our car, or you enter the vehicle number.</span>
     <div>
-        <input type="number" id="input1" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input type="text" id="input2" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input type="text" id="input3" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input type="text" id="input4" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input type="number" id="input5" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input type="number" id="input6" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input type="number" id="input7" maxlength="1" oninput="checkInputFull(this)" onkeydown="handleBackspace(this)"><br>
+        <input id="input1" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
+        <input id="input2" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
+        <input id="input3" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
+        <input id="input4" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
+        <input id="input5" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
+        <input id="input6" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
+        <input id="input7" maxlength="1" oninput="checkInputFull(this)" onkeydown="handleBackspace(this)"><br>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -74,6 +74,8 @@
             document.getElementById('input7').value = e.data[6]
             window.Telegram.WebApp.closeScanQrPopup();
             tg.MainButton.text = "View the car";
+            tg.MainButton.show();
+
         })
     </script>
     <script>
