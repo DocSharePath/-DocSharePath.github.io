@@ -45,7 +45,7 @@
         <input id="input4" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
         <input id="input5" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
         <input id="input6" maxlength="1" oninput="checkInput(this)" onkeydown="handleBackspace(this)">
-        <input id="input7" maxlength="1" oninput="checkInputFull(this)" onkeydown="handleBackspace(this)"><br>
+        <input id="input7" maxlength="1" onkeydown="handleBackspace(this)"><br>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -91,15 +91,6 @@
                 }
             }
         }
-
-        function checkInputFull(currentInput) {
-            if (currentInput.value.length === 1) {
-                viewacar.show();
-            } else {
-                scanbutton.show();
-            }
-        }
-
         function handleBackspace(currentInput) {
             if (event.key === 'Backspace' && currentInput.value === '') {
                 var prevInput = currentInput.previousElementSibling;
