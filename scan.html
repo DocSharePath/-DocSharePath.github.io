@@ -51,12 +51,27 @@
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
-        tg.MainButton.text = "Scan";
-        tg.MainButton.show();
-        tg.MainButton.onClick(function () {
+
+        scanbutton = tg.MainButton;
+        scanbutton.text = "Scan";
+
+        viewacar = tg.MainButton;
+        viewacar.text = "View the car"
+
+        scanbutton.show();
+
+        scanbutton.onClick(function () {
+            tg.MainButton.hide();
+                tg.showScanQrPopup({
+                    text: "Scan the QR code on the car. It's usually on the windshield or the back fender.",
+            })
+        });
+
+        viewacar.onClick(function () {
             tg.sendData("car" + document.getElementById('input1').value + document.getElementById('input2').value + document.getElementById('input3').value + document.getElementById('input4').value + document.getElementById('input5').value + document.getElementById('input6').value + document.getElementById('input7').value);
             tg.close()
         });
+
         tg.onEvent("qrTextReceived", (e) => {
             document.getElementById('input1').value = e.data[0]
             document.getElementById('input2').value = e.data[1]
@@ -79,9 +94,9 @@
 
         function checkInputFull(currentInput) {
             if (currentInput.value.length === 1) {
-                tg.MainButton.text = "View the car";
+                viewacar.shiw()'
             } else {
-                tg.MainButton.text = "Scan";
+                scanbutton.show();
             }
         }
 
